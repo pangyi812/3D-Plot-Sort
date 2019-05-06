@@ -13,4 +13,4 @@ in 3DPlot folder, runing mainpy script
 
 Result Overview
 -------------------------------------
-pcs/Figure_1.png
+![ScreenShot](https://github.com/pangyi812/3D-Plot-Sort/blob/master/pcs/Figure_1.png)
