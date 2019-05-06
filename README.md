@@ -12,4 +12,4 @@ Running
 in 3DPlot folder, runing mainpy script
 
 Result Overview
-Figure_1.png
+https://github.com/pangyi812/3D-Plot-Sort/blob/master/pcs/Figure_1.png
