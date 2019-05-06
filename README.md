@@ -12,3 +12,4 @@ Running
 in 3DPlot folder, runing mainpy script
 
 Result Overview
+Figure_1.png
