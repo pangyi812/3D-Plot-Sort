@@ -15,7 +15,6 @@ class Dataimport:
                 vertex = []
                 if len(row) == 0:
                     break
-                print(row[0].split(" "))
                 for item in row[0].split(" "):
                     if len(item) > 0:
                             vertex.append(float(item))
