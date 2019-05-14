@@ -10,11 +10,11 @@ class colorfigure:
         self.ys = colory
         self.zs = colorz
 
-    def plot(self, color, mark):
+    def plot(self, mark):
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
-
-        ax.scatter(self.xs, self.ys, self.zs, c = color, marker = mark)
+        c = list(range(1, len(self.xs)))
+        ax.scatter(self.xs, self.ys, self.zs, c, marker=mark)
         ax.set_xlabel('X Lable')
         ax.set_ylabel('Y Lable')
         ax.set_zlabel('Z Lable')

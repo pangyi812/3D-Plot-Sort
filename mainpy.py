@@ -10,6 +10,5 @@ c = Endpointcalculation(a.get_xs(), a.get_ys(), a.get_zs())
 d = pointsort(c.endpoint(c.enddistance(), c.comparsion(c.enddistance())), a.get_vertex(), a.get_xs(), a.get_ys(), a.get_zs())
 e = colorfigure(d.get_colorx(), d.get_colory(), d.get_colorz())
 
-#for i range(0, len(d.get_colorx()))
-
 b.plot('green', 'o')
+e.plot('o')

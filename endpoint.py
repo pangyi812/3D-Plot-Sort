@@ -35,7 +35,7 @@ class Endpointcalculation:
                 endpoint.append(self.xs[i])
                 endpoint.append(self.ys[i])
                 endpoint.append(self.zs[i])
-                print(endpoint)
+                #print(endpoint)
         return endpoint
 
 

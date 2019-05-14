@@ -8,45 +8,57 @@ class pointsort:
         self.xs = xs_
         self.ys = ys_
         self.zs = zs_
-        self.pointsorts(self.sort(), self.colorsort(self.sort()))
+        self.sort()
 
 
     def sort(self):
         distances = [0]*len(self.xs)
+        self.end = [0]*len(self.xs)
+        self.colorx = [0]*len(self.xs)
+        self.colory = [0]*len(self.xs)
+        self.colorz = [0]*len(self.zs)
 
         for i in range(0, len(self.xs)):
-             distances[i] = math.sqrt((self.xs[i] - self.endpoint[0]) ** 2 + (self.ys[i] - self.endpoint[1]) ** 2 + (self.zs[i] - self.endpoint[2]) ** 2)
-            #print(distances)
-        return distances
+            for j in range(0, len(self.xs)):
+                distances[j] = math.sqrt((self.xs[j] - self.endpoint[0]) ** 2 + (self.ys[j] - self.endpoint[1]) ** 2 + (self.zs[j] - self.endpoint[2]) ** 2)
+            print(distances)
+            print(len(distances))
+            list1 = list(set(distances))
+            list1.sort(key=distances.index)
+            list1.remove(0.0)
 
-    def colorsort(self, endsort=[], distances=[]):
-        endsort.append(distances)
+            print(list1)
+            print(len(list1))
+            #print(self.endpoint[0])
+            #print(self.endpoint[1])
+            #print(self.endpoint[2])
+            minpoint = min(list1)
 
-        for i in range(0, len(self.xs)):
+            for k in range(0, len(distances)):
+                if distances[k] == minpoint:
+                    self.end[i] = self.vertex[k]
+                    print(minpoint)
+                    print(distances[k])
 
-            for j in range(0, len(self.xs)-1):
-                if endsort[j] > endsort[j + 1]:
-                    bridge = endsort[j+1]
-                    endsort[j+1] = endsort[j]
-                    endsort[j] = bridge
+                    self.colorx[i] = self.xs[k]
+                    self.colory[i] = self.ys[k]
+                    self.colorz[i] = self.zs[k]
+                    print(self.endpoint[0])
+                    print(k)
+                    print(self.xs[k])
+                    self.endpoint[0] = self.xs[k]
+                    self.endpoint[1] = self.ys[k]
+                    self.endpoint[2] = self.zs[k]
+                    print(self.endpoint[0])
 
-        return endsort
+                    self.xs.remove(self.xs[k])
+                    self.ys.remove(self.ys[k])
+                    self.zs.remove(self.zs[k])
 
-    def pointsorts(self, distances=[], endsort=[]):
-        pointsort = [0] * len(self.xs)
-        self.colorx = [0] * len(self.xs)
-        self.colory = [0] * len(self.xs)
-        self.colorz = [0] * len(self.xs)
+        #print(self.end)
 
-        for i in range(0, len(self.xs)):
-            for j in range(0, len(self.xs)-1):
-                if distances[j] == endsort[i]:
-                    pointsort[i] = self.vertex[j]
-                    self.colorx[i] = self.xs[j]
-                    self.colory[i] = self.ys[j]
-                    self.colorz[i] = self.zs[j]
-        print(pointsort)
-        return pointsort
+    def get_end(self):
+        return self.end
 
     def get_colorx(self):
         return self.colorx
