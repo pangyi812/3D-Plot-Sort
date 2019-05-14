@@ -12,48 +12,56 @@ class pointsort:
 
 
     def sort(self):
-        distances = [0]*len(self.xs)
-        self.end = [0]*len(self.xs)
-        self.colorx = [0]*len(self.xs)
-        self.colory = [0]*len(self.xs)
-        self.colorz = [0]*len(self.zs)
+        #listvertex = list(set(self.vertex))
+        #listvertex.sort(key=self.vertex.index)
+        self.listxs = list(set(self.xs))
+        self.listxs.sort(key=self.xs.index)
+        self.listys = list(set(self.ys))
+        self.listys.sort(key=self.ys.index)
+        self.listzs = list(set(self.zs))
+        self.listzs.sort(key=self.zs.index)
+        print(len(self.listxs))
 
-        for i in range(0, len(self.xs)):
-            for j in range(0, len(self.xs)):
-                distances[j] = math.sqrt((self.xs[j] - self.endpoint[0]) ** 2 + (self.ys[j] - self.endpoint[1]) ** 2 + (self.zs[j] - self.endpoint[2]) ** 2)
+
+        distances = [0]*len(self.listxs)
+        self.end = [0]*len(self.listxs)
+        self.colorx = [0]*len(self.listxs)
+        self.colory = [0]*len(self.listxs)
+        self.colorz = [0]*len(self.listxs)
+
+        for i in range(0, len(self.listxs)):
+            for j in range(0, len(self.listxs)):
+                distances[j] = math.sqrt((self.listxs[j] - self.endpoint[0]) ** 2 + (self.listys[j] - self.endpoint[1]) ** 2 + (self.listzs[j] - self.endpoint[2]) ** 2)
             print(distances)
             print(len(distances))
-            list1 = list(set(distances))
-            list1.sort(key=distances.index)
-            list1.remove(0.0)
+            distances.remove(0.0)
 
-            print(list1)
-            print(len(list1))
             #print(self.endpoint[0])
             #print(self.endpoint[1])
             #print(self.endpoint[2])
-            minpoint = min(list1)
+            minpoint = min(distances)
 
             for k in range(0, len(distances)):
                 if distances[k] == minpoint:
-                    self.end[i] = self.vertex[k]
+                    #self.end[i] = self.listvertex[k]
                     print(minpoint)
                     print(distances[k])
 
-                    self.colorx[i] = self.xs[k]
-                    self.colory[i] = self.ys[k]
-                    self.colorz[i] = self.zs[k]
+                    self.colorx[i] = self.listxs[k]
+                    self.colory[i] = self.listys[k]
+                    self.colorz[i] = self.listzs[k]
                     print(self.endpoint[0])
                     print(k)
-                    print(self.xs[k])
-                    self.endpoint[0] = self.xs[k]
-                    self.endpoint[1] = self.ys[k]
-                    self.endpoint[2] = self.zs[k]
+                    print(self.listxs[k])
+                    print(self.end)
+                    self.endpoint[0] = self.listxs[k]
+                    self.endpoint[1] = self.listys[k]
+                    self.endpoint[2] = self.listzs[k]
                     print(self.endpoint[0])
 
-                    self.xs.remove(self.xs[k])
-                    self.ys.remove(self.ys[k])
-                    self.zs.remove(self.zs[k])
+                    self.listxs.remove(self.listxs[k])
+                    self.listys.remove(self.listys[k])
+                    self.listzs.remove(self.listzs[k])
 
         #print(self.end)
 
