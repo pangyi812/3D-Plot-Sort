@@ -1,6 +1,6 @@
 import math
 
-class Endpointcalculation:
+class Endpointcalculation:           #init program
     def __init__(self, xs_=[], ys_=[], zs_=[]):
         self.xs = xs_
         self.ys = ys_
@@ -9,7 +9,7 @@ class Endpointcalculation:
         self.comparsion(self.enddistance())
         self.endpoint(self.enddistance(), self.comparsion(self.enddistance()))
 
-    def enddistance(self):
+    def enddistance(self):            #calculate distance between every point with other points
         distancepoint = [0]*len(self.xs)
         sum = []
         point = []
@@ -20,23 +20,23 @@ class Endpointcalculation:
                  distancepoint[j] = math.sqrt((self.xs[i] - self.xs[j])**2+(self.ys[i] - self.ys[j])**2 + (self.zs[i]-self.zs[j])**2)
                  sum[i] = sum[i] + distancepoint[j]
         point.extend(sum)
-        #print(point)
-        return point
 
-    def comparsion(self, point=[]):
+        return point     #get distance result with other points
+
+    def comparsion(self, point=[]):   #get biggest distance
         mark = max(point)
-        #print(mark)
+
         return mark
 
-    def endpoint(self, point=[], mark=0):
+    def endpoint(self, point=[], mark=0):   #get biggest distances reference to the point
         endpoint = []
         for i in range(0, len(point)):
             if point[i] == mark:
                 endpoint.append(self.xs[i])
                 endpoint.append(self.ys[i])
                 endpoint.append(self.zs[i])
-                #print(endpoint)
-        return endpoint
+
+        return endpoint                       #get end point
 
 
 

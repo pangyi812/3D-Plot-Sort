@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 
 class Coordinatesimport:
 
-    def __init__(self, xs, ys, zs):
+    def __init__(self, xs, ys, zs):    # get data from csv data files
         self.xs = xs
         self.ys = ys
         self.zs = zs
 
-    def plot(self, color, mark):
+    def plot(self, color, mark):     #normal figure
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         ax.scatter(self.xs, self.ys, self.zs, c = color, marker = mark)
